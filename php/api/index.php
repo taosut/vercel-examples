@@ -1,14 +1,14 @@
 <?php
-	require './vendor/autoload.php';
+	require 'vendor/autoload.php';
 function autoloader() {
-	require_once ('./vietqr-generator-main/src/CRCHelper.php');
-	require_once ('./vietqr-generator-main/src/Constants.php');
-	require_once ('./vietqr-generator-main/src/Generator.php');
-	require_once ('./vietqr-generator-main/src/Helper.php');
-	require_once ('./vietqr-generator-main/src/InvalidBankIdException.php');
-	require_once ('./vietqr-generator-main/src/Response.php');
-	require_once ('./vietqr-generator-main/src/TransferInfo.php');
-	require_once ('./vietqr-generator-main/src/VietQRField.php');
+	require_once ('vietqr-generator-main/src/CRCHelper.php');
+	require_once ('vietqr-generator-main/src/Constants.php');
+	require_once ('vietqr-generator-main/src/Generator.php');
+	require_once ('vietqr-generator-main/src/Helper.php');
+	require_once ('vietqr-generator-main/src/InvalidBankIdException.php');
+	require_once ('vietqr-generator-main/src/Response.php');
+	require_once ('vietqr-generator-main/src/TransferInfo.php');
+	require_once ('vietqr-generator-main/src/VietQRField.php');
 }
 
 spl_autoload_register('autoloader');
