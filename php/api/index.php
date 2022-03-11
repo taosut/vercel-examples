@@ -23,19 +23,19 @@ header("Access-Control-Max-Age: 3600");
 header("Access-Control-Allow-Headers: Content-Type, Access-Control-Allow-Headers, Authorization, X-Requested-With");
 
 $uri = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
-$uri = explode( '/', $uri );
+// $uri = explode( '/', $uri );
 // endpoints start with /api/qr-generator
 // else results in a 404 Not Found
-if ($uri[1] !== 'qr-generator') {
-    header("HTTP/1.1 404 Not Found");
-    exit();
-}
+// if ($uri[1] !== 'qr-generator') {
+//     header("HTTP/1.1 404 Not Found");
+//     exit();
+// }
 
 
 $genObj = new Generator();
 
 // request method is Get
-if ($_SERVER["REQUEST_METHOD"] == 'GET' && $uri[1] == 'qr-generator') {
+if ($_SERVER["REQUEST_METHOD"] == 'GET') {
 	$gen = $genObj->create()
             ->bankId("TCB") // BankId, bankname
             ->accountNo("9704078889360132")// Account number
@@ -48,7 +48,7 @@ if ($_SERVER["REQUEST_METHOD"] == 'GET' && $uri[1] == 'qr-generator') {
 	echo nl2br(" \n Test API");
 }
 
-if ($_SERVER["REQUEST_METHOD"] == 'GET' && $uri[1] == 'qr-generator') {
+if ($_SERVER["REQUEST_METHOD"] == 'GET') {
 	$gen = $genObj->create()
             ->bankId("VCB") // BankId, bankname
             ->accountNo("111111")// Account number
@@ -58,7 +58,7 @@ if ($_SERVER["REQUEST_METHOD"] == 'GET' && $uri[1] == 'qr-generator') {
 }
 
 // request method is POST
-if ($_SERVER["REQUEST_METHOD"] == 'POST' && $uri[1] == 'qr-generator') {
+if ($_SERVER["REQUEST_METHOD"] == 'POST') {
 	// Get params input
 	$input = (array) json_decode(file_get_contents('php://input'), TRUE);
 
